@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Lab2</string>
+    <string name="text_view_label">Hello user!</string>
+    <string name="button_label">Press here</string>
+    <string name="labe_mod">This will be modified</string>
+</resources>
