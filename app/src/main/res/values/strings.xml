@@ -3,4 +3,14 @@
     <string name="text_view_label">Salut, utilizator!</string>
     <string name="button_label">Apasă aici</string>
     <string name="labe_mod">Aici se modifica</string>
+    <string name="nume_unt">Rares Produse de unt</string>
+    <string name="numar_kalorii">Numar kalorii</string>
+    <string name="contine_alergeni">Contine alergeni</string>
+    <string name="salveaza">Salvează</string>
+    <string-array name="tipuri_margarina">
+        <item>VEGANĂ</item>
+        <item>LIGHT</item>
+        <item>CLASICĂ</item>
+        <item>CU UNT</item>
+    </string-array>
 </resources>
