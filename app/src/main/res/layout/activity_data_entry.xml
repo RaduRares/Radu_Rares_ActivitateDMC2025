@@ -7,21 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".DataEntryActivity">
 
-R
-    <EditText
-        android:id="@+id/edittext_nume"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Nume produs"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
 
     <!-- EditText pentru numărul de angajați -->
 
     <!-- CheckBox pentru status deschis/închis -->
+
+    <EditText
+        android:id="@+id/etDataExpirare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:hint="@string/data_expir_rii_dd_mm_yyyy"
+        app:layout_constraintBottom_toTopOf="@+id/ratingbar"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_tip"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="58dp" />
+
+    <EditText
+        android:id="@+id/edittext_nume"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:hint="Nume produs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editNumar_calorii"
         android:layout_width="236dp"
@@ -42,21 +54,22 @@ R
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editNumar_calorii" />
 
+
     <Spinner
         android:id="@+id/spinner_tip"
         android:layout_width="303dp"
         android:layout_height="138dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkbox_deschis" />
-
 
     <Button
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="Salvează"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -67,7 +80,8 @@ R
         android:id="@+id/ratingbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="108dp"
         android:numStars="5"
         android:stepSize="0.5"
         app:layout_constraintStart_toStartOf="parent"

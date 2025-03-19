@@ -7,6 +7,7 @@
     <string name="numar_kalorii">Numar kalorii</string>
     <string name="contine_alergeni">Contine alergeni</string>
     <string name="salveaza">Salvează</string>
+    <string name="data_expir_rii_dd_mm_yyyy">Data expirării (dd/MM/yyyy)</string>
     <string-array name="tipuri_margarina">
         <item>VEGANĂ</item>
         <item>LIGHT</item>

@@ -3,6 +3,10 @@ package com.example.app_bun;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class Margarina implements Parcelable {
 
     public enum TipMarg {
@@ -14,13 +18,15 @@ public class Margarina implements Parcelable {
     private int numarCalorii;
     private float rating;
     private TipMarg tip;
+    private Date dataExpirare;
 
-    public Margarina(String nume, boolean contineAlergeni, int numarCalorii, float rating, TipMarg tip) {
+    public Margarina(String nume, boolean contineAlergeni, int numarCalorii, float rating, TipMarg tip,Date dataExpirare) {
         this.nume = nume;
         this.contineAlergeni = contineAlergeni;
         this.numarCalorii = numarCalorii;
         this.rating = rating;
         this.tip = tip;
+        this.dataExpirare=dataExpirare;
     }
 
     protected Margarina(Parcel in) {
@@ -28,7 +34,9 @@ public class Margarina implements Parcelable {
         contineAlergeni = in.readByte() != 0;
         numarCalorii = in.readInt();
         rating = in.readFloat();
-        tip = TipMarg.valueOf(in.readString());
+        tip = Margarina.TipMarg.valueOf(in.readString());
+        long dateMillis = in.readLong();
+        dataExpirare = (dateMillis == -1L) ? null : new Date(dateMillis);
     }
 
     public static final Creator<Margarina> CREATOR = new Creator<Margarina>() {
@@ -44,11 +52,12 @@ public class Margarina implements Parcelable {
     };
 
     public String getNume() { return nume; }
+
     public boolean isContineAlergeni() { return contineAlergeni; }
     public int getNumarCalorii() { return numarCalorii; }
     public float getRating() { return rating; }
     public TipMarg getTip() { return tip; }
-
+    public Date getDataExpirare() { return dataExpirare; }
     @Override
     public int describeContents() { return 0; }
 
@@ -59,5 +68,6 @@ public class Margarina implements Parcelable {
         dest.writeInt(numarCalorii);
         dest.writeFloat(rating);
         dest.writeString(tip.name());
+        dest.writeLong(dataExpirare != null ? dataExpirare.getTime() : -1L);
     }
 }
