@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
-import java.io.IOException;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -24,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSearch;
     private TextView textViewResult;
     private String cityKey;
-    private static final String API_KEY = "9eElvvCSvUzRCniS0DsUAGHjGVnI4K4e"; // Your API key
+    private static final String API_KEY = BuildConfig.API_KEY_WEATHER;
+
     private static final String TAG = "WeatherApp";
 
     @Override
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 String city = editTextCity.getText().toString().trim();
                 if (!city.isEmpty()) {
                     Log.d(TAG, "Searching for city: " + city);
+
                     new CitySearchTask().execute(city);
                 } else {
                     textViewResult.setText("Please enter a city name");

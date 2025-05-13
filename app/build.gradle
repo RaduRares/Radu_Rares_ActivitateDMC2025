@@ -1,11 +1,15 @@
+
+
 plugins {
     alias(libs.plugins.android.application)
 }
-
+def API_KEY = project.findProperty("API_KEY_WEATHER") ?: ""
 android {
     namespace 'com.example.lab10_bun'
     compileSdk 35
-
+    buildFeatures {
+        buildConfig true
+    }
     defaultConfig {
         applicationId "com.example.lab10_bun"
         minSdk 24
@@ -14,6 +18,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_KEY_WEATHER", "\"${API_KEY}\""
+
     }
 
     buildTypes {
