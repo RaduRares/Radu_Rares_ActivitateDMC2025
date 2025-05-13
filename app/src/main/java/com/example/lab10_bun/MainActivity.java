@@ -1,5 +1,6 @@
 package com.example.lab10_bun;
 
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,12 +27,22 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonSearch;
     private TextView textViewResult;
     private String cityKey;
-    private static final String API_KEY = BuildConfig.API_KEY_WEATHER;
 
+    private String API_KEY = "";
     private static final String TAG = "WeatherApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            API_KEY = getPackageManager()
+                    .getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA)
+                    .metaData
+                    .getString("com.example.API_KEY");
+            Log.d(TAG, "Loaded API KEY: " + API_KEY);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
