@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextCity"
+        android:layout_width="match_parent"
+        android:layout_height="216dp"
+        android:hint="Enter city name" />
+
+    <Spinner
+        android:id="@+id/spinnerForecastDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/forecast_days"
+        android:prompt="@string/select_forecast_days" />
+
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search City" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="243dp"
+        android:paddingTop="16dp"
+        android:text="" />
+
+</LinearLayout>
