@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Spinner
+        android:id="@+id/spinnerGrafic"
+        android:layout_width="388dp"
+        android:layout_height="203dp" />
+
+    <Button
+        android:id="@+id/buttonAfiseazaGrafic"
+        android:layout_width="360dp"
+        android:layout_height="253dp"
+        android:text="Deschide grafic" />
+
+    <EditText
+        android:id="@+id/editTextValori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introdu valori separate prin virgulă ex: 10, 20, 30" />
+</LinearLayout>
