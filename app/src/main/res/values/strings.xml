@@ -14,4 +14,16 @@
         <item>CLASICĂ</item>
         <item>CU UNT</item>
     </string-array>
+    <string-array name="text_sizes">
+        <item>Mic</item>
+        <item>Mediu</item>
+        <item>Mare</item>
+    </string-array>
+
+    <string-array name="text_colors">
+        <item>Negru</item>
+        <item>Roșu</item>
+        <item>Albastru</item>
+    </string-array>
+
 </resources>

@@ -3,11 +3,10 @@ package com.example.app_bun;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.sql.Time;
-import java.time.LocalDateTime;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Margarina implements Parcelable {
+public class Margarina implements Parcelable{
 
     public enum TipMarg {
         VEGANĂ, LIGHT, CLASICĂ, CU_UNT
@@ -19,14 +18,15 @@ public class Margarina implements Parcelable {
     private float rating;
     private TipMarg tip;
     private Date dataExpirare;
-
-    public Margarina(String nume, boolean contineAlergeni, int numarCalorii, float rating, TipMarg tip,Date dataExpirare) {
+    public Margarina() {
+    }
+    public Margarina(String nume, boolean contineAlergeni, int numarCalorii, float rating, TipMarg tip, Date dataExpirare) {
         this.nume = nume;
         this.contineAlergeni = contineAlergeni;
         this.numarCalorii = numarCalorii;
         this.rating = rating;
         this.tip = tip;
-        this.dataExpirare=dataExpirare;
+        this.dataExpirare = dataExpirare;
     }
 
     protected Margarina(Parcel in) {
@@ -34,7 +34,7 @@ public class Margarina implements Parcelable {
         contineAlergeni = in.readByte() != 0;
         numarCalorii = in.readInt();
         rating = in.readFloat();
-        tip = Margarina.TipMarg.valueOf(in.readString());
+        tip = TipMarg.valueOf(in.readString());
         long dateMillis = in.readLong();
         dataExpirare = (dateMillis == -1L) ? null : new Date(dateMillis);
     }
@@ -50,16 +50,29 @@ public class Margarina implements Parcelable {
             return new Margarina[size];
         }
     };
-
     public String getNume() { return nume; }
+    public void setNume(String nume) { this.nume = nume; }
 
-    public boolean isContineAlergeni() { return contineAlergeni; }
-    public int getNumarCalorii() { return numarCalorii; }
-    public float getRating() { return rating; }
-    public TipMarg getTip() { return tip; }
-    public Date getDataExpirare() { return dataExpirare; }
-    @Override
-    public int describeContents() { return 0; }
+
+    public boolean isContineAlergeni() {
+        return contineAlergeni;
+    }
+
+    public int getNumarCalorii() {
+        return numarCalorii;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public TipMarg getTip() {
+        return tip;
+    }
+
+    public Date getDataExpirare() {
+        return dataExpirare;
+    }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -69,5 +82,10 @@ public class Margarina implements Parcelable {
         dest.writeFloat(rating);
         dest.writeString(tip.name());
         dest.writeLong(dataExpirare != null ? dataExpirare.getTime() : -1L);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 }
